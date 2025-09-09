@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Exit Management System - Demo</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        .demo-banner {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1rem;
+            text-align: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1001;
+        }
+        .demo-banner h1 {
+            margin: 0;
+            font-size: 1.5rem;
+        }
+        .demo-banner p {
+            margin: 0.5rem 0 0 0;
+            opacity: 0.9;
+        }
+        .main-container {
+            margin-top: 140px;
+        }
+        .demo-features {
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            margin: 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        .feature-card {
+            border: 1px solid #dee2e6;
+            border-radius: 10px;
+            padding: 1.5rem;
+            text-align: center;
+        }
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            font-size: 1.5rem;
+        }
+        .demo-actions {
+            text-align: center;
+            margin: 2rem 0;
+        }
+        .demo-actions .btn {
+            margin: 0 1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="demo-banner">
+        <h1>🚀 Employee Exit Management System - Demo</h1>
+        <p>Experience the complete employee exit workflow with this interactive demonstration</p>
+    </div>
+
+    <div class="main-container">
+        <div class="demo-features">
+            <h2>System Overview</h2>
+            <p>This comprehensive employee exit management system provides a complete solution for handling employee resignations and terminations, inspired by the Keka HR platform.</p>
+            
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <h3>Employee Self-Service</h3>
+                    <p>Employees can initiate their own resignation requests through an intuitive profile interface with guided forms and status tracking.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-tasks"></i>
+                    </div>
+                    <h3>Three-Phase Process</h3>
+                    <p>Under Review → Exits in Progress → Exited Employees. Complete workflow management with visual status indicators.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-cog"></i>
+                    </div>
+                    <h3>Configurable Settings</h3>
+                    <p>Flexible configuration for resignation reasons, approval workflows, notice periods, and company policies.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Dashboard Analytics</h3>
+                    <p>Real-time statistics and insights into exit trends, pending requests, and process efficiency.</p>
+                </div>
+            </div>
+            
+            <div class="demo-actions">
+                <button class="btn btn-primary" onclick="window.open('index.html', '_blank')">
+                    <i class="fas fa-external-link-alt"></i>
+                    Open Full System
+                </button>
+                <button class="btn btn-secondary" onclick="showDemoSteps()">
+                    <i class="fas fa-play"></i>
+                    View Demo Steps
+                </button>
+            </div>
+        </div>
+
+        <div class="demo-features" id="demoSteps" style="display: none;">
+            <h2>Demo Walkthrough</h2>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h4>Step 1: Employee Profile</h4>
+                    <p>Navigate to "Employee Profile" tab to see the employee information and resignation button.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <h4>Step 2: Submit Resignation</h4>
+                    <p>Click "Resign From Job" to open the resignation form. Fill out the required information and submit.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <h4>Step 3: Track Status</h4>
+                    <p>View the resignation status banner on the profile page showing approval progress.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <h4>Step 4: Admin Review</h4>
+                    <p>Go to "Exit Process" tab → "Under Review" to see pending requests and take action.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <h4>Step 5: Process Management</h4>
+                    <p>Move approved requests to "Exits in Progress" and track completion of exit tasks.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <h4>Step 6: Configuration</h4>
+                    <p>Visit "Settings" tab to configure resignation reasons, approval workflows, and policies.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showDemoSteps() {
+            const demoSteps = document.getElementById('demoSteps');
+            if (demoSteps.style.display === 'none') {
+                demoSteps.style.display = 'block';
+                demoSteps.scrollIntoView({ behavior: 'smooth' });
+            } else {
+                demoSteps.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>

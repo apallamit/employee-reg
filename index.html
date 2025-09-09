@@ -1,0 +1,2015 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Exit Management System</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-left">
+            <div class="logo">
+                <i class="fas fa-building"></i>
+                <span>Employee Exit Management</span>
+            </div>
+        </div>
+        <div class="header-center">
+            <div class="search-bar">
+                <i class="fas fa-search"></i>
+                <input type="text" placeholder="Search employees or actions...">
+            </div>
+        </div>
+        <div class="header-right">
+            <div class="user-profile">
+                <img src="https://via.placeholder.com/40" alt="User" class="user-avatar">
+                <span>Admin User</span>
+            </div>
+        </div>
+    </header>
+
+    <div class="main-container">
+        <!-- Sidebar -->
+        <nav class="sidebar">
+            <ul class="nav-menu">
+                <li class="nav-item active">
+                    <i class="fas fa-home"></i>
+                    <span>Home</span>
+                </li>
+                <li class="nav-item">
+                    <i class="fas fa-user"></i>
+                    <span>My Profile</span>
+                </li>
+                <li class="nav-item">
+                    <i class="fas fa-users"></i>
+                    <span>My Team</span>
+                </li>
+                <li class="nav-item">
+                    <i class="fas fa-building"></i>
+                    <span>Organization</span>
+                </li>
+                <li class="nav-item">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Exits</span>
+                </li>
+                <li class="nav-item">
+                    <i class="fas fa-cog"></i>
+                    <span>Settings</span>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Navigation Tabs -->
+            <div class="content-header">
+                <div class="nav-tabs">
+                    <button class="tab-btn active" data-tab="dashboard">Dashboard</button>
+                    <button class="tab-btn" data-tab="employee-profile">Employee Profile</button>
+                    <button class="tab-btn" data-tab="exit-process">Exit Process</button>
+                    <button class="tab-btn" data-tab="settings">Settings</button>
+                </div>
+            </div>
+
+            <!-- Dashboard Tab -->
+            <div id="dashboard" class="tab-content active">
+                <div class="dashboard-grid">
+                    <div class="dashboard-card">
+                        <h3>Pending Resignations</h3>
+                        <div class="stat-number">4</div>
+                        <div class="stat-label">Under Review</div>
+                    </div>
+                    <div class="dashboard-card">
+                        <h3>Exits in Progress</h3>
+                        <div class="stat-number">3</div>
+                        <div class="stat-label">Processing</div>
+                    </div>
+                    <div class="dashboard-card">
+                        <h3>Completed Exits</h3>
+                        <div class="stat-number">12</div>
+                        <div class="stat-label">This Month</div>
+                    </div>
+                    <div class="dashboard-card">
+                        <h3>Active Employees</h3>
+                        <div class="stat-number">156</div>
+                        <div class="stat-label">Total</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Employee Profile Tab -->
+            <div id="employee-profile" class="tab-content">
+                <div class="profile-container">
+                    <div class="profile-header">
+                        <div class="profile-info">
+                            <div class="profile-avatar">
+                                <div class="avatar-circle">AR</div>
+                            </div>
+                            <div class="profile-details">
+                                <h2>Anuroop Pillarisetti</h2>
+                                <p class="role">Lead Customer Success</p>
+                                <div class="contact-info">
+                                    <span><i class="fas fa-envelope"></i> brad.garlinghouse@company.com</span>
+                                    <span><i class="fas fa-phone"></i> +91 7989609657</span>
+                                    <span><i class="fas fa-map-marker-alt"></i> Hyderabad, India</span>
+                                    <span><i class="fas fa-id-badge"></i> #8055</span>
+                                </div>
+                                <div class="job-details">
+                                    <p><strong>Department:</strong> Customer Success</p>
+                                    <p><strong>Business Unit:</strong> Keka Technologies</p>
+                                    <p><strong>Reporting Manager:</strong> Liliana Martinez</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="profile-actions">
+                            <button class="btn btn-primary" id="resignBtn">
+                                <i class="fas fa-sign-out-alt"></i>
+                                Resign From Job
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Resignation Status Banner -->
+                    <div class="resignation-banner" id="resignationBanner" style="display: none;">
+                        <i class="fas fa-info-circle"></i>
+                        <span id="resignationStatus">Your resignation request is awaiting approval from Vijay Kumar +2 more reviewers. Last working day will be available post approval.</span>
+                    </div>
+
+                    <div class="profile-tabs">
+                        <button class="profile-tab active" data-tab="about">About</button>
+                        <button class="profile-tab" data-tab="job">Job</button>
+                        <button class="profile-tab" data-tab="documents">Documents</button>
+                        <button class="profile-tab" data-tab="assets">Assets</button>
+                    </div>
+
+                    <div class="profile-content">
+                        <div id="about" class="profile-tab-content active">
+                            <div class="content-grid">
+                                <div class="content-section">
+                                    <h3>About</h3>
+                                    <p>Experienced customer success professional with expertise in building strong client relationships and driving customer satisfaction.</p>
+                                </div>
+                                <div class="content-section">
+                                    <h3>Skills</h3>
+                                    <div class="skills-container">
+                                        <div class="skill-tag">Customer Success</div>
+                                        <div class="skill-tag">Account Management</div>
+                                        <div class="skill-tag">Team Leadership</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Exit Process Tab -->
+            <div id="exit-process" class="tab-content">
+                <div class="exit-process-container">
+                    <div class="exit-process-tabs">
+                        <button class="exit-tab active" data-phase="under-review">
+                            Under Review <span class="badge">4</span>
+                        </button>
+                        <button class="exit-tab" data-phase="in-progress">
+                            Exits in Progress <span class="badge">3</span>
+                        </button>
+                        <button class="exit-tab" data-phase="exited">
+                            Exited Employees <span class="badge">12</span>
+                        </button>
+                    </div>
+
+                    <!-- Under Review Phase -->
+                    <div id="under-review" class="exit-phase active">
+                        <div class="phase-header">
+                            <h3>Resignations & Terminations Under Review</h3>
+                            <div class="phase-actions">
+                                <button class="btn btn-secondary">Select All</button>
+                                <button class="btn btn-secondary">Send Reminder</button>
+                            </div>
+                        </div>
+                        <div class="filters">
+                            <select class="filter-select">
+                                <option>Business Unit</option>
+                            </select>
+                            <select class="filter-select">
+                                <option>Department</option>
+                            </select>
+                            <select class="filter-select">
+                                <option>Location</option>
+                            </select>
+                            <select class="filter-select">
+                                <option>Cost Center</option>
+                            </select>
+                            <select class="filter-select">
+                                <option>Exit Type</option>
+                            </select>
+                            <input type="text" placeholder="Search..." class="search-input">
+                        </div>
+                        <div class="exit-table">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th><input type="checkbox"></th>
+                                        <th>Employee</th>
+                                        <th>Exit Type</th>
+                                        <th>Notice Date</th>
+                                        <th>Reason & Comment</th>
+                                        <th>Last Working Day</th>
+                                        <th>Review Status</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><input type="checkbox"></td>
+                                        <td>
+                                            <div class="employee-info">
+                                                <div class="employee-avatar">ZN</div>
+                                                <div>
+                                                    <div class="employee-name">Zoeb Nomi</div>
+                                                    <div class="employee-role">Designer, Outbound Sales > Intl</div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td><span class="exit-type termination">Termination (Requested by Zoeb N)</span></td>
+                                        <td>18 Dec 2024</td>
+                                        <td>Death, c</td>
+                                        <td>18 Dec 2024 <span class="status-pending">(To be finalised)</span></td>
+                                        <td>Raj Varaham <span class="status-pending">(Needs to approve)</span></td>
+                                        <td>
+                                            <div class="action-buttons">
+                                                <button class="btn btn-sm btn-primary view-details-btn" data-employee="zoeb-nomi">View Details</button>
+                                                <button class="btn-icon dropdown-toggle" data-employee="zoeb-nomi">
+                                                    <i class="fas fa-ellipsis-v"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><input type="checkbox"></td>
+                                        <td>
+                                            <div class="employee-info">
+                                                <div class="employee-avatar">NC</div>
+                                                <div>
+                                                    <div class="employee-name">Neeraj Chopra</div>
+                                                    <div class="employee-role">Product Manager, Engineering</div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td><span class="exit-type resignation">Resignation (Requested by Zoeb N)</span></td>
+                                        <td>18 Dec 2024</td>
+                                        <td>Explore Other careers, cd</td>
+                                        <td>18 Feb 2025 <span class="status-pending">(To be finalised)</span></td>
+                                        <td>Global admin / HR manager <span class="status-pending">(Needs to approve)</span></td>
+                                        <td>
+                                            <div class="action-buttons">
+                                                <button class="btn btn-sm btn-primary complete-review-btn" data-employee="neeraj-chopra">Complete Review</button>
+                                                <button class="btn-icon dropdown-toggle" data-employee="neeraj-chopra">
+                                                    <i class="fas fa-ellipsis-v"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><input type="checkbox"></td>
+                                        <td>
+                                            <div class="employee-info">
+                                                <div class="employee-avatar">AS</div>
+                                                <div>
+                                                    <div class="employee-name">Avinash Saxena</div>
+                                                    <div class="employee-role">UX Writer, Sales</div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td><span class="exit-type termination">Termination (Requested by Zoeb N)</span></td>
+                                        <td>19 Dec 2024</td>
+                                        <td>Absconding, hj</td>
+                                        <td>18 Feb 2025 <span class="status-pending">(To be finalised)</span></td>
+                                        <td>Raj Varaham / 1 other <span class="status-pending">(Needs to approve)</span></td>
+                                        <td>
+                                            <div class="action-buttons">
+                                                <button class="btn btn-sm btn-primary review-btn" data-employee="avinash-saxena">Review</button>
+                                                <button class="btn-icon dropdown-toggle" data-employee="avinash-saxena">
+                                                    <i class="fas fa-ellipsis-v"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><input type="checkbox"></td>
+                                        <td>
+                                            <div class="employee-info">
+                                                <div class="employee-avatar">A.</div>
+                                                <div>
+                                                    <div class="employee-name">Arthi..</div>
+                                                    <div class="employee-role">Engineering Manager, Product > Core HR</div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td><span class="exit-type resignation">Resignation (Requested by Zoeb N)</span></td>
+                                        <td>18 Dec 2024</td>
+                                        <td>Other, rc</td>
+                                        <td>18 Feb 2025 <span class="status-pending">(To be finalised)</span></td>
+                                        <td>Global admin / HR manager <span class="status-pending">(Needs to approve)</span></td>
+                                        <td>
+                                            <div class="action-buttons">
+                                                <button class="btn btn-sm btn-primary complete-review-btn" data-employee="arthi">Complete Review</button>
+                                                <button class="btn-icon dropdown-toggle" data-employee="arthi">
+                                                    <i class="fas fa-ellipsis-v"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div class="table-footer">
+                                <span>1 to 4 of 4</span>
+                                <span>Page 1 of 1</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Exits in Progress Phase -->
+                    <div id="in-progress" class="exit-phase">
+                        <div class="phase-header">
+                            <h3>Employees whose exit request is approved</h3>
+                        </div>
+                        <div class="filters">
+                            <select class="filter-select">
+                                <option>Business Unit</option>
+                            </select>
+                            <select class="filter-select">
+                                <option>Department</option>
+                            </select>
+                            <select class="filter-select">
+                                <option>Location</option>
+                            </select>
+                            <select class="filter-select">
+                                <option>Cost Center</option>
+                            </select>
+                            <input type="text" placeholder="Search..." class="search-input">
+                        </div>
+                        <div class="exit-progress-table">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Employee</th>
+                                        <th>Last Working Day</th>
+                                        <th>Exit Actions</th>
+                                        <th>Other Tasks</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <div class="employee-info">
+                                                <div class="employee-avatar">SK</div>
+                                                <div>
+                                                    <div class="employee-name">Saurabh Khare</div>
+                                                    <div class="employee-role">SDE, Engineering</div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="last-working-day">
+                                                <div>21 Dec 2024</div>
+                                                <span class="days-left">2 days left</span>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="exit-actions-icons">
+                                                <div class="action-icon green" title="Asset Recovery - Completed">
+                                                    <i class="fas fa-check"></i>
+                                                </div>
+                                                <div class="action-icon yellow" title="Finances - In Progress">
+                                                    <i class="fas fa-dollar-sign"></i>
+                                                </div>
+                                                <div class="action-icon yellow" title="Exit Survey - In Progress">
+                                                    <i class="fas fa-user"></i>
+                                                </div>
+                                                <div class="action-icon yellow" title="Team Dependencies - In Progress">
+                                                    <i class="fas fa-building"></i>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="other-tasks">
+                                                <div class="task-item">
+                                                    <i class="fas fa-user"></i>
+                                                    <span>0 due</span>
+                                                </div>
+                                                <div class="task-item">
+                                                    <i class="fas fa-building"></i>
+                                                    <span>3 due</span>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="action-buttons">
+                                                <button class="btn btn-sm btn-primary manage-btn" data-employee="saurabh-khare">
+                                                    Manage
+                                                </button>
+                                                <button class="btn-icon">
+                                                    <i class="fas fa-ellipsis-v"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="employee-info">
+                                                <div class="employee-avatar">NP</div>
+                                                <div>
+                                                    <div class="employee-name">new pay</div>
+                                                    <div class="employee-role">Product Manager, Engineering</div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="last-working-day">
+                                                <div>16 Jan 2025</div>
+                                                <span class="days-left">28 days left</span>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="exit-actions-icons">
+                                                <div class="action-icon grey" title="Asset Recovery - Not Started">
+                                                    <i class="fas fa-laptop"></i>
+                                                </div>
+                                                <div class="action-icon green" title="Finances - Completed">
+                                                    <i class="fas fa-dollar-sign"></i>
+                                                </div>
+                                                <div class="action-icon grey" title="Exit Survey - Not Started">
+                                                    <i class="fas fa-user"></i>
+                                                </div>
+                                                <div class="action-icon grey" title="Team Dependencies - Not Started">
+                                                    <i class="fas fa-building"></i>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="other-tasks">
+                                                <span class="na-text">NA</span>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="action-buttons">
+                                                <button class="btn btn-sm btn-primary manage-btn" data-employee="new-pay">
+                                                    Manage
+                                                </button>
+                                                <button class="btn-icon">
+                                                    <i class="fas fa-ellipsis-v"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="employee-info">
+                                                <div class="employee-avatar">RV</div>
+                                                <div>
+                                                    <div class="employee-name">Raj Varaham</div>
+                                                    <div class="employee-role">Product Manager, Product</div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="last-working-day">
+                                                <div>18 Feb 2025</div>
+                                                <span class="days-left">61 days left</span>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="exit-actions-icons">
+                                                <div class="action-icon green" title="Asset Recovery - Completed">
+                                                    <i class="fas fa-check"></i>
+                                                </div>
+                                                <div class="action-icon yellow" title="Finances - In Progress">
+                                                    <i class="fas fa-dollar-sign"></i>
+                                                </div>
+                                                <div class="action-icon yellow" title="Exit Survey - In Progress">
+                                                    <i class="fas fa-user"></i>
+                                                </div>
+                                                <div class="action-icon yellow" title="Team Dependencies - In Progress">
+                                                    <i class="fas fa-building"></i>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="other-tasks">
+                                                <div class="task-item">
+                                                    <i class="fas fa-user"></i>
+                                                    <span>0 due</span>
+                                                </div>
+                                                <div class="task-item">
+                                                    <i class="fas fa-building"></i>
+                                                    <span>3 due</span>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="action-buttons">
+                                                <button class="btn btn-sm btn-primary manage-btn" data-employee="raj-varaham">
+                                                    Manage
+                                                </button>
+                                                <button class="btn-icon">
+                                                    <i class="fas fa-ellipsis-v"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="employee-info">
+                                                <div class="employee-avatar">JC</div>
+                                                <div>
+                                                    <div class="employee-name">Jim Corbett</div>
+                                                    <div class="employee-role">Product Manager, Data Engineering</div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="last-working-day">
+                                                <div>18 Feb 2025</div>
+                                                <span class="days-left">61 days left</span>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="exit-actions-icons">
+                                                <div class="action-icon green" title="Asset Recovery - Completed">
+                                                    <i class="fas fa-check"></i>
+                                                </div>
+                                                <div class="action-icon yellow" title="Finances - In Progress">
+                                                    <i class="fas fa-dollar-sign"></i>
+                                                </div>
+                                                <div class="action-icon grey" title="Exit Survey - Not Started">
+                                                    <i class="fas fa-user"></i>
+                                                </div>
+                                                <div class="action-icon grey" title="Team Dependencies - Not Started">
+                                                    <i class="fas fa-building"></i>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="other-tasks">
+                                                <span class="na-text">NA</span>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="action-buttons">
+                                                <button class="btn btn-sm btn-primary manage-btn" data-employee="jim-corbett">
+                                                    Manage
+                                                </button>
+                                                <button class="btn-icon">
+                                                    <i class="fas fa-ellipsis-v"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div class="table-footer">
+                                <span>4 of 4 records</span>
+                                <span>Page 1 of 1</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Exited Employees Phase -->
+                    <div id="exited" class="exit-phase">
+                        <div class="phase-header">
+                            <h3>Exited employees</h3>
+                            <div class="phase-actions">
+                                <input type="text" placeholder="Search..." class="search-input">
+                                <button class="btn-icon">
+                                    <i class="fas fa-download"></i>
+                                </button>
+                                <button class="btn-icon">
+                                    <i class="fas fa-ellipsis-h"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="exit-table">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Employee</th>
+                                        <th>Last Working Day</th>
+                                        <th>Exit Actions</th>
+                                        <th>Other Tasks</th>
+                                        <th>Exit Status</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <div class="employee-info">
+                                                <div class="employee-avatar">AS</div>
+                                                <div>
+                                                    <div class="employee-name">Arjun Singh</div>
+                                                    <div class="employee-role">Product Manager Product</div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="last-working-day">
+                                                <div>08 Sep 2024</div>
+                                                <span class="days-since">102 days since exited</span>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="exit-actions-icons">
+                                                <div class="action-icon grey" title="Finances - Not Started">
+                                                    <i class="fas fa-dollar-sign"></i>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <span class="na-text">NA</span>
+                                        </td>
+                                        <td>
+                                            <div class="exit-status">
+                                                <span>Exited on 08 Sept 2024</span>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="action-buttons">
+                                                <button class="btn btn-sm btn-primary manage-btn" data-employee="arjun-singh">Manage</button>
+                                                <button class="btn-icon dropdown-toggle" data-employee="arjun-singh">
+                                                    <i class="fas fa-ellipsis-v"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="employee-info">
+                                                <div class="employee-avatar">PS</div>
+                                                <div>
+                                                    <div class="employee-name">Padma Sri</div>
+                                                    <div class="employee-role">Product Manager, Demo Department > Demo Sub</div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="last-working-day">
+                                                <div>26 Sep 2024</div>
+                                                <span class="days-since">84 days since exited</span>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="exit-actions-icons">
+                                                <div class="action-icon green" title="Asset Recovery - Completed">
+                                                    <i class="fas fa-laptop"></i>
+                                                </div>
+                                                <div class="action-icon grey" title="Finances - Not Started">
+                                                    <i class="fas fa-dollar-sign"></i>
+                                                </div>
+                                                <div class="action-icon grey" title="Exit Survey - Not Started">
+                                                    <i class="fas fa-clipboard-list"></i>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="other-tasks">
+                                                <div class="task-item">
+                                                    <i class="fas fa-user"></i>
+                                                    <span>1 due</span>
+                                                </div>
+                                                <div class="task-item">
+                                                    <i class="fas fa-building"></i>
+                                                    <span>0 due</span>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="exit-status">
+                                                <span>Exited on 26 Sept 2024</span>
+                                                <button class="btn-icon edit-exit-date" title="Click to update exit date">
+                                                    <i class="fas fa-edit"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="action-buttons">
+                                                <button class="btn btn-sm btn-primary manage-btn" data-employee="padma-sri">Manage</button>
+                                                <button class="btn-icon dropdown-toggle" data-employee="padma-sri">
+                                                    <i class="fas fa-ellipsis-v"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="employee-info">
+                                                <div class="employee-avatar">AE</div>
+                                                <div>
+                                                    <div class="employee-name">Apoorva efe Gupta</div>
+                                                    <div class="employee-role">Engineering Lead Product</div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="last-working-day">
+                                                <div>28 Nov 2024</div>
+                                                <span class="days-since">21 days since exited</span>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="exit-actions-icons">
+                                                <div class="action-icon grey" title="Finances - Not Started">
+                                                    <i class="fas fa-dollar-sign"></i>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <span class="na-text">NA</span>
+                                        </td>
+                                        <td>
+                                            <div class="exit-status">
+                                                <span>Exited on 28 Nov 2024</span>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="action-buttons">
+                                                <button class="btn btn-sm btn-primary manage-btn" data-employee="apoorva-gupta">Manage</button>
+                                                <button class="btn-icon dropdown-toggle" data-employee="apoorva-gupta">
+                                                    <i class="fas fa-ellipsis-v"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="employee-info">
+                                                <div class="employee-avatar">MD</div>
+                                                <div>
+                                                    <div class="employee-name">Monah des Remedios</div>
+                                                    <div class="employee-role">SDE Marketing</div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="last-working-day">
+                                                <div>12 Dec 2024</div>
+                                                <span class="days-since">7 days since exited</span>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <span class="na-text">NA</span>
+                                        </td>
+                                        <td>
+                                            <div class="other-tasks">
+                                                <div class="task-item">
+                                                    <i class="fas fa-user"></i>
+                                                    <span>0 due</span>
+                                                </div>
+                                                <div class="task-item">
+                                                    <i class="fas fa-building"></i>
+                                                    <span>3 due</span>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="exit-status">
+                                                <span>Exited on 12 Dec 2024</span>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="action-buttons">
+                                                <button class="btn btn-sm btn-primary manage-btn" data-employee="monah-remedios">Manage</button>
+                                                <button class="btn-icon dropdown-toggle" data-employee="monah-remedios">
+                                                    <i class="fas fa-ellipsis-v"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div class="table-footer">
+                                <span>1 to 4 of 4</span>
+                                <span>Page 1 of 1</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Settings Tab -->
+            <div id="settings" class="tab-content">
+                <div class="settings-container">
+                    <div class="settings-header">
+                        <h2>Exit Settings</h2>
+                        <button class="btn btn-primary" id="editSettingsBtn">Edit</button>
+                    </div>
+                    
+                    <div class="settings-tabs">
+                        <button class="settings-tab active" data-settings="resignation">Resignation Settings</button>
+                        <button class="settings-tab" data-settings="termination">Termination Settings</button>
+                        <button class="settings-tab" data-settings="notice-period">Notice Period</button>
+                    </div>
+
+                    <!-- Resignation Settings -->
+                    <div id="resignation-settings" class="settings-content active">
+                        <div class="settings-section">
+                            <h3>Resignation Settings</h3>
+                            <div class="setting-item">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" checked>
+                                    <span class="checkmark"></span>
+                                    Show Resignation Form for the employees to resign from the organization
+                                </label>
+                            </div>
+                            <div class="setting-item">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" checked>
+                                    <span class="checkmark"></span>
+                                    Allow employees to choose the preference on an early last working day
+                                </label>
+                            </div>
+                            <div class="setting-item">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" checked>
+                                    <span class="checkmark"></span>
+                                    Allow employee to withdraw resignation
+                                </label>
+                            </div>
+                            <div class="setting-item">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" checked>
+                                    <span class="checkmark"></span>
+                                    Approval Required
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="settings-section">
+                            <h3>Resignation Reasons</h3>
+                            <div class="reasons-header">
+                                <button class="btn btn-primary">+ Add Reason</button>
+                                <input type="text" placeholder="Search..." class="search-input">
+                            </div>
+                            <div class="reasons-list">
+                                <div class="reason-item">
+                                    <span>Health Reason</span>
+                                    <div class="reason-actions">
+                                        <button class="btn-icon"><i class="fas fa-edit"></i></button>
+                                        <button class="btn-icon"><i class="fas fa-trash"></i></button>
+                                    </div>
+                                </div>
+                                <div class="reason-item">
+                                    <span>Retirement</span>
+                                    <div class="reason-actions">
+                                        <button class="btn-icon"><i class="fas fa-edit"></i></button>
+                                        <button class="btn-icon"><i class="fas fa-trash"></i></button>
+                                    </div>
+                                </div>
+                                <div class="reason-item">
+                                    <span>Personal Reasons</span>
+                                    <div class="reason-actions">
+                                        <button class="btn-icon"><i class="fas fa-edit"></i></button>
+                                        <button class="btn-icon"><i class="fas fa-trash"></i></button>
+                                    </div>
+                                </div>
+                                <div class="reason-item">
+                                    <span>Relocating</span>
+                                    <div class="reason-actions">
+                                        <button class="btn-icon"><i class="fas fa-edit"></i></button>
+                                        <button class="btn-icon"><i class="fas fa-trash"></i></button>
+                                    </div>
+                                </div>
+                                <div class="reason-item">
+                                    <span>Explore Other careers</span>
+                                    <div class="reason-actions">
+                                        <button class="btn-icon"><i class="fas fa-edit"></i></button>
+                                        <button class="btn-icon"><i class="fas fa-trash"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="settings-section">
+                            <h3>Resignation Review Settings</h3>
+                            <div class="setting-item">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" checked>
+                                    <span class="checkmark"></span>
+                                    Resignation review required
+                                </label>
+                            </div>
+                            <div class="review-options">
+                                <label class="radio-label">
+                                    <input type="radio" name="review-type" value="acknowledgement" checked>
+                                    <span class="radio-mark"></span>
+                                    <div>
+                                        <strong>Acknowledgement</strong>
+                                        <p>This allows the exit process to proceed without resignation review being a blocker in the process.</p>
+                                    </div>
+                                </label>
+                                <label class="radio-label">
+                                    <input type="radio" name="review-type" value="approval">
+                                    <span class="radio-mark"></span>
+                                    <div>
+                                        <strong>Approval</strong>
+                                        <p>This allows organisations to control an employee's exit via resignation.</p>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Termination Settings -->
+                    <div id="termination-settings" class="settings-content">
+                        <div class="settings-section">
+                            <h3>Termination Settings</h3>
+                            <div class="setting-item">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" checked>
+                                    <span class="checkmark"></span>
+                                    Termination approval required
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="settings-section">
+                            <h3>Termination Reasons</h3>
+                            <div class="reasons-header">
+                                <button class="btn btn-primary">+ Add Reason</button>
+                                <input type="text" placeholder="Search..." class="search-input">
+                            </div>
+                            <div class="reasons-list">
+                                <div class="reason-item">
+                                    <span>Absconding</span>
+                                    <div class="reason-actions">
+                                        <button class="btn-icon"><i class="fas fa-edit"></i></button>
+                                        <button class="btn-icon"><i class="fas fa-trash"></i></button>
+                                    </div>
+                                </div>
+                                <div class="reason-item">
+                                    <span>Death</span>
+                                    <div class="reason-actions">
+                                        <button class="btn-icon"><i class="fas fa-edit"></i></button>
+                                        <button class="btn-icon"><i class="fas fa-trash"></i></button>
+                                    </div>
+                                </div>
+                                <div class="reason-item">
+                                    <span>Medical Condition</span>
+                                    <div class="reason-actions">
+                                        <button class="btn-icon"><i class="fas fa-edit"></i></button>
+                                        <button class="btn-icon"><i class="fas fa-trash"></i></button>
+                                    </div>
+                                </div>
+                                <div class="reason-item">
+                                    <span>Performance Issue</span>
+                                    <div class="reason-actions">
+                                        <button class="btn-icon"><i class="fas fa-edit"></i></button>
+                                        <button class="btn-icon"><i class="fas fa-trash"></i></button>
+                                    </div>
+                                </div>
+                                <div class="reason-item">
+                                    <span>Misconduct</span>
+                                    <div class="reason-actions">
+                                        <button class="btn-icon"><i class="fas fa-edit"></i></button>
+                                        <button class="btn-icon"><i class="fas fa-trash"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Resignation Modal -->
+    <div id="resignationModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Resign From Job</h2>
+                <button class="close-btn" id="closeModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="info-banner">
+                    <i class="fas fa-info-circle"></i>
+                    <span>This will trigger your job resignation process! It is always advisable to talk to your management first before coming here!</span>
+                </div>
+                
+                <form id="resignationForm">
+                    <div class="form-group">
+                        <label>Did you have discussion with manager on your decision to exit?</label>
+                        <div class="radio-group">
+                            <label class="radio-label">
+                                <input type="radio" name="manager-discussion" value="yes">
+                                <span class="radio-mark"></span>
+                                Yes
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="manager-discussion" value="no" checked>
+                                <span class="radio-mark"></span>
+                                No
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Please select a reason for your resignation</label>
+                        <select class="form-select" required>
+                            <option value="">Select Reason</option>
+                            <option value="health">Health Reason</option>
+                            <option value="retirement">Retirement</option>
+                            <option value="personal">Personal Reasons</option>
+                            <option value="relocating">Relocating</option>
+                            <option value="career">Explore Other careers</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Comment</label>
+                        <textarea class="form-textarea" placeholder="Please provide additional details..."></textarea>
+                    </div>
+
+                    <div class="notice-period-note">
+                        <i class="fas fa-info-circle"></i>
+                        <span>Note: As per the company policy, you are required to serve notice period of 1 Days, till Aug 15, 2024.</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Any preference on an early last working day? (optional)</label>
+                        <div class="radio-group">
+                            <label class="radio-label">
+                                <input type="radio" name="early-exit" value="yes">
+                                <span class="radio-mark"></span>
+                                Yes
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="early-exit" value="no" checked>
+                                <span class="radio-mark"></span>
+                                No
+                            </label>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" id="cancelResignation">No, Changed my mind</button>
+                <button class="btn btn-primary" id="submitResignation">Submit Resignation</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Exit Management Side Panel -->
+    <div id="exitManagementPanel" class="side-panel">
+        <div class="side-panel-header">
+            <div class="employee-header">
+                <div class="employee-avatar">SK</div>
+                <div class="employee-details">
+                    <h3>Saurabh Khare - SDE</h3>
+                    <p>Engineering</p>
+                    <p>DMart bldg</p>
+                </div>
+            </div>
+            <div class="last-working-info">
+                <span>Last working day 21 Dec 2024</span>
+                <span class="days-left-badge">2 days left</span>
+            </div>
+            <button class="close-panel-btn" id="closePanelBtn">&times;</button>
+        </div>
+        
+                <div class="side-panel-nav">
+                    <button class="panel-nav-btn active" data-section="summary">Summary</button>
+                    <button class="panel-nav-btn" data-section="assets">Assets</button>
+                    <button class="panel-nav-btn" data-section="finances">Finances</button>
+                    <button class="panel-nav-btn" data-section="survey">Survey</button>
+                    <button class="panel-nav-btn" data-section="team">Team</button>
+                    <button class="panel-nav-btn" data-section="tasks">Tasks</button>
+                    <button class="panel-nav-btn" data-section="activity">Activity</button>
+                    <button class="panel-nav-btn" data-section="leave-settings">Leave Settings</button>
+                </div>
+        
+        <div class="side-panel-content">
+            <!-- Summary Section -->
+            <div id="summary-section" class="panel-section active">
+                <div class="exit-details">
+                    <h4>Exit details</h4>
+                    <div class="detail-item">
+                        <strong>Initiation:</strong> Zoeb Nomi initiated Termination for Saurabh Khare On 10 Nov 2024.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Reason:</strong> Absconding.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Last Working Day:</strong> Last working day as per policy: 09 Jan 2025
+                        <div class="suggested-date">Suggested last working day: 21 Dec 2024.</div>
+                    </div>
+                    <div class="detail-item">
+                        <strong>Additional comments:</strong> Test.
+                    </div>
+                </div>
+                
+                <div class="exit-actions-status">
+                    <h4>Exit actions and task status</h4>
+                    <div class="action-status-list">
+                        <div class="action-status-item completed">
+                            <div class="action-icon">
+                                <i class="fas fa-laptop"></i>
+                            </div>
+                            <div class="action-details">
+                                <strong>Asset Recovery</strong>
+                                <p>Recovery action closed on 18 Dec 2024.</p>
+                            </div>
+                            <i class="fas fa-chevron-right"></i>
+                        </div>
+                        
+                        <div class="action-status-item pending">
+                            <div class="action-icon">
+                                <i class="fas fa-dollar-sign"></i>
+                            </div>
+                            <div class="action-details">
+                                <strong>Finances</strong>
+                                <p>Finalisation action pending.</p>
+                            </div>
+                            <i class="fas fa-chevron-right"></i>
+                        </div>
+                        
+                        <div class="action-status-item in-progress">
+                            <div class="action-icon">
+                                <i class="fas fa-clipboard-list"></i>
+                            </div>
+                            <div class="action-details">
+                                <strong>Exit Survey</strong>
+                                <p>1 exit survey scheduled for 20 Sept 2024.</p>
+                            </div>
+                            <i class="fas fa-chevron-right"></i>
+                        </div>
+                        
+                        <div class="action-status-item in-progress">
+                            <div class="action-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div class="action-details">
+                                <strong>Team & Role dependencies</strong>
+                                <p>1 of 2 completed. Last action on 19 Dec 2024.</p>
+                            </div>
+                            <i class="fas fa-chevron-right"></i>
+                        </div>
+                        
+                        <div class="action-status-item not-started">
+                            <div class="action-icon">
+                                <i class="fas fa-tasks"></i>
+                            </div>
+                            <div class="action-details">
+                                <strong>Tasks</strong>
+                                <p>Not assigned</p>
+                                <p class="overdue">3 pending (3 overdue).</p>
+                            </div>
+                            <i class="fas fa-chevron-right"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Assets Section -->
+            <div id="assets-section" class="panel-section">
+                <div class="section-header">
+                    <h4>Recover asset</h4>
+                    <select class="status-dropdown">
+                        <option value="not-started">Not Started</option>
+                        <option value="in-progress">In Progress</option>
+                        <option value="ready">Ready for Finalisation</option>
+                    </select>
+                </div>
+                
+                <div class="info-banner">
+                    <i class="fas fa-info-circle"></i>
+                    <span>Asset recovery action will get applied once employee's finances are finalised. Set the status to "Ready for finalisation" to close this task.</span>
+                </div>
+                
+                <div class="assets-list">
+                    <div class="asset-item">
+                        <div class="asset-icon">
+                            <i class="fas fa-desktop"></i>
+                        </div>
+                        <div class="asset-details">
+                            <strong>bgv 2</strong>
+                            <p>16</p>
+                        </div>
+                        <div class="asset-actions">
+                            <button class="btn btn-primary mark-recovered-btn" data-asset="bgv-2">Mark as Recovered</button>
+                        </div>
+                    </div>
+                    <div class="asset-item">
+                        <div class="asset-icon">
+                            <i class="fas fa-desktop"></i>
+                        </div>
+                        <div class="asset-details">
+                            <strong>bgv</strong>
+                            <p>55</p>
+                        </div>
+                        <div class="asset-actions">
+                            <span class="recovered-status">Marked as: Recovered</span>
+                            <button class="btn-icon dropdown-toggle asset-dropdown" data-asset="bgv">
+                                <i class="fas fa-ellipsis-v"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Asset Dropdown Menu -->
+                <div class="asset-dropdown-menu">
+                    <div class="dropdown-item" data-action="view-details">
+                        <i class="fas fa-eye"></i>
+                        <span>View details</span>
+                    </div>
+                    <div class="dropdown-item" data-action="update-details">
+                        <i class="fas fa-edit"></i>
+                        <span>Update details</span>
+                    </div>
+                    <div class="dropdown-item" data-action="mark-not-available">
+                        <i class="fas fa-times"></i>
+                        <span>Mark as not available</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Finances Section -->
+            <div id="finances-section" class="panel-section">
+                <div class="section-header">
+                    <h4>Finances</h4>
+                    <button class="btn btn-primary">Review & Finalise</button>
+                </div>
+                
+                <div class="finance-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>LINE ITEM</th>
+                                <th>CREDIT</th>
+                                <th>DEBIT</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Salary - Jan-2027 (0/0 Days payable)</td>
+                                <td>INR 6,750.34</td>
+                                <td>INR 20,000</td>
+                            </tr>
+                            <tr>
+                                <td>Mid bonus</td>
+                                <td>INR 13,291.66</td>
+                                <td>INR 0</td>
+                            </tr>
+                            <tr>
+                                <td>Employee Gratuity</td>
+                                <td>INR 72,115</td>
+                                <td>INR 0</td>
+                            </tr>
+                            <tr class="total-row">
+                                <td><strong>Total</strong></td>
+                                <td><strong>INR 92,157</strong></td>
+                                <td><strong>INR 20,000</strong></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="net-payable">
+                    <p><strong>Net payable: INR 85,406.66 to be credited</strong></p>
+                </div>
+                
+                <div class="finance-actions">
+                    <button class="btn btn-primary">Process Payment</button>
+                    <button class="btn btn-secondary">Generate Payslip</button>
+                    <button class="btn btn-secondary">Add Asset Damage Charges</button>
+                </div>
+            </div>
+            
+            <!-- Survey Section -->
+            <div id="survey-section" class="panel-section">
+                <div class="section-header">
+                    <h4>Exit Survey</h4>
+                    <div class="survey-toggle">
+                        <label class="toggle-switch">
+                            <input type="checkbox" checked>
+                            <span class="toggle-slider"></span>
+                        </label>
+                        <span>Employee is required to submit exit survey form</span>
+                    </div>
+                    <button class="btn btn-secondary">Preview Survey</button>
+                </div>
+                
+                <div class="survey-status">
+                    <div class="survey-item">
+                        <label>Exit survey</label>
+                        <span class="status-trigger">Triggers on 07 Mar 2025</span>
+                    </div>
+                </div>
+                
+                <div class="survey-pending">
+                    <div class="pending-icon">
+                        <i class="fas fa-file-alt"></i>
+                        <i class="fas fa-clock overlay-icon"></i>
+                    </div>
+                    <h4>Survey is yet to be triggered.</h4>
+                    <p>The exit survey form for this employee will be triggered on 07 Mar 2025.</p>
+                </div>
+                
+                <div class="survey-actions">
+                    <button class="btn btn-primary">Send Survey Now</button>
+                    <button class="btn btn-secondary">Edit Survey</button>
+                </div>
+            </div>
+            
+            <!-- Team Section -->
+            <div id="team-section" class="panel-section">
+                <div class="section-header">
+                    <h4>Manage transition of Team & Role dependencies</h4>
+                    <div class="progress-indicator">
+                        <span>0 OF 1 COMPLETED</span>
+                    </div>
+                </div>
+                
+                <div class="team-nav">
+                    <button class="team-nav-btn active" data-team-section="direct-reports">Direct Reports</button>
+                    <button class="team-nav-btn" data-team-section="projects">Projects</button>
+                    <button class="team-nav-btn" data-team-section="responsibilities">Responsibilities</button>
+                </div>
+                
+                <div class="team-content">
+                    <div id="direct-reports-section" class="team-subsection active">
+                        <div class="subsection-header">
+                            <h5>Direct Reports</h5>
+                            <button class="btn btn-primary edit-team-btn">Edit</button>
+                        </div>
+                        
+                        <div class="team-assignment">
+                            <div class="assignment-header">
+                                <div class="set-all">
+                                    <input type="checkbox" id="setForEveryone">
+                                    <label for="setForEveryone">Set for everyone</label>
+                                </div>
+                            </div>
+                            
+                            <div class="direct-reports-list">
+                                <div class="report-item">
+                                    <div class="employee-info">
+                                        <div class="employee-avatar">MV</div>
+                                        <div class="employee-details">
+                                            <strong>Molly Volly Holly</strong>
+                                            <span>PD</span>
+                                        </div>
+                                    </div>
+                                    <div class="new-manager">
+                                        <input type="text" placeholder="Search Employee" class="search-employee-input">
+                                    </div>
+                                </div>
+                                
+                                <div class="report-item">
+                                    <div class="employee-info">
+                                        <div class="employee-avatar">AA</div>
+                                        <div class="employee-details">
+                                            <strong>Akshit A</strong>
+                                            <span>PD</span>
+                                        </div>
+                                    </div>
+                                    <div class="new-manager">
+                                        <input type="text" placeholder="Search Employee" class="search-employee-input">
+                                    </div>
+                                </div>
+                                
+                                <div class="report-item">
+                                    <div class="employee-info">
+                                        <div class="employee-avatar">JM</div>
+                                        <div class="employee-details">
+                                            <strong>John Moe Doe</strong>
+                                            <span>PD</span>
+                                        </div>
+                                    </div>
+                                    <div class="new-manager">
+                                        <input type="text" placeholder="Search Employee" class="search-employee-input">
+                                    </div>
+                                </div>
+                                
+                                <div class="report-item">
+                                    <div class="employee-info">
+                                        <div class="employee-avatar">SB</div>
+                                        <div class="employee-details">
+                                            <strong>Sharukh bharukh marukh</strong>
+                                            <span>PD</span>
+                                        </div>
+                                    </div>
+                                    <div class="new-manager">
+                                        <input type="text" placeholder="Search Employee" class="search-employee-input">
+                                    </div>
+                                </div>
+                                
+                                <div class="report-item">
+                                    <div class="employee-info">
+                                        <div class="employee-avatar">KS</div>
+                                        <div class="employee-details">
+                                            <strong>Kritika Sharma</strong>
+                                            <span>PD</span>
+                                        </div>
+                                    </div>
+                                    <div class="new-manager">
+                                        <input type="text" placeholder="Search Employee" class="search-employee-input">
+                                    </div>
+                                </div>
+                                
+                                <div class="report-item">
+                                    <div class="employee-info">
+                                        <div class="employee-avatar">HS</div>
+                                        <div class="employee-details">
+                                            <strong>Henry Side</strong>
+                                            <span>Senior Quality Analyst</span>
+                                        </div>
+                                    </div>
+                                    <div class="new-manager">
+                                        <input type="text" placeholder="Search Employee" class="search-employee-input">
+                                    </div>
+                                </div>
+                                
+                                <div class="report-item">
+                                    <div class="employee-info">
+                                        <div class="employee-avatar">DD</div>
+                                        <div class="employee-details">
+                                            <strong>Dev Dey</strong>
+                                            <span>Product Manager</span>
+                                        </div>
+                                    </div>
+                                    <div class="new-manager">
+                                        <input type="text" placeholder="Search Employee" class="search-employee-input">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="team-actions">
+                    <button class="btn btn-primary">Save Changes</button>
+                    <button class="btn btn-secondary">Cancel</button>
+                </div>
+            </div>
+            
+            <!-- Tasks Section -->
+            <div id="tasks-section" class="panel-section">
+                <div class="section-header">
+                    <h4>Exit Tasks</h4>
+                    <div class="task-summary">
+                        <span>1 of 1 tasks pending</span>
+                        <span>1 due on employee</span>
+                    </div>
+                    <button class="btn btn-primary add-task-btn">
+                        <i class="fas fa-plus"></i> Add new tasks
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                </div>
+                
+                <div class="task-actions-bar">
+                    <button class="btn btn-primary selected">Select all</button>
+                    <button class="btn btn-secondary">Remind</button>
+                    <button class="btn btn-secondary">Skip</button>
+                </div>
+                
+                <div class="tasks-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>TASKS</th>
+                                <th>STATUS</th>
+                                <th>DUE DATE</th>
+                                <th>OWNER</th>
+                                <th>ACTIONS</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>A</td>
+                                <td>
+                                    <span class="status-badge to-be-triggered">To be triggered in 18d</span>
+                                </td>
+                                <td>
+                                    <div class="due-date">
+                                        <span>09 Mar 2025</span>
+                                        <span class="days-left">18 days left</span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="task-owner">
+                                        <div class="owner-avatar">DP</div>
+                                        <span>Daryl Pulikken</span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <button class="btn-icon">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="table-footer">
+                    <span>1 to 1 of 1</span>
+                    <span>Page 1 of 1</span>
+                </div>
+                
+                <div class="task-actions">
+                    <button class="btn btn-primary">Add Task</button>
+                    <button class="btn btn-secondary">Import Tasks</button>
+                </div>
+            </div>
+            
+            <!-- Activity Section -->
+            <div id="activity-section" class="panel-section">
+                <div class="section-header">
+                    <h4>Activity</h4>
+                </div>
+                
+                <div class="add-note-section">
+                    <div class="add-note-input">
+                        <input type="text" placeholder="Add note" id="activityNoteInput">
+                        <button class="btn-icon send-note-btn" id="sendNoteBtn">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="activity-log">
+                    <div class="activity-item">
+                        <div class="activity-content">
+                            <div class="activity-header">
+                                <div class="activity-user">
+                                    <div class="user-avatar">ZN</div>
+                                    <div class="user-info">
+                                        <strong>Zoeb Nomi</strong>
+                                        <span class="activity-time">20 Jan 2025, 11:30 am</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="activity-details">
+                                <p><strong>Action:</strong> Accepted exit request</p>
+                                <p>Zoeb Nomi took action on exit request of Bhargava Tatavarthi</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="activity-item">
+                        <div class="activity-content">
+                            <div class="activity-header">
+                                <div class="activity-user">
+                                    <div class="user-avatar">ZN</div>
+                                    <div class="user-info">
+                                        <strong>Zoeb Nomi</strong>
+                                        <span class="activity-time">20 Jan 2025, 11:29 am</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="activity-details">
+                                <p><strong>Action:</strong> Accepted exit request</p>
+                                <p>Zoeb Nomi reviewed exit request of Bhargava Tatavarthi on behalf of Saurabh Khare / 1 other</p>
+                                <p><strong>Recommended last working day:</strong> 19 Mar 2025</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="activity-item">
+                        <div class="activity-content">
+                            <div class="activity-header">
+                                <div class="activity-user">
+                                    <div class="user-avatar">ZN</div>
+                                    <div class="user-info">
+                                        <strong>Zoeb Nomi</strong>
+                                        <span class="activity-time">20 Jan 2025, 11:28 am</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="activity-details">
+                                <p><strong>Action:</strong> Initiated resignation</p>
+                                <p>Zoeb Nomi initiated resignation for Bhargava Tatavarthi</p>
+                                <p><strong>Reason:</strong> Other</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="activity-item">
+                        <div class="activity-content">
+                            <div class="activity-header">
+                                <div class="activity-user">
+                                    <div class="user-avatar">BT</div>
+                                    <div class="user-info">
+                                        <strong>Bhargava Tatavarthi</strong>
+                                        <span class="activity-time">20 Jan 2025, 10:15 am</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="activity-details">
+                                <p><strong>Action:</strong> Submitted resignation</p>
+                                <p>Employee submitted resignation request</p>
+                                <p><strong>Last working day requested:</strong> 19 Mar 2025</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Leave Settings Section -->
+            <div id="leave-settings-section" class="panel-section">
+                <h4>Leave Settings</h4>
+                <div class="leave-info">
+                    <div class="leave-item">
+                        <strong>Accrued Leave:</strong>
+                        <span>15 days</span>
+                    </div>
+                    <div class="leave-item">
+                        <strong>Leave During Notice Period:</strong>
+                        <span>2 days</span>
+                    </div>
+                    <div class="leave-item">
+                        <strong>Notice Period Extension:</strong>
+                        <span>No extension required</span>
+                    </div>
+                </div>
+                <div class="leave-actions">
+                    <button class="btn btn-primary">Adjust Leave</button>
+                    <button class="btn btn-secondary">Extend Notice Period</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- View Details Modal -->
+    <div id="viewDetailsModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Resignation Details</h2>
+                <button class="close-btn" id="closeViewDetailsModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="employee-details-section">
+                    <div class="employee-header">
+                        <div class="employee-avatar">ZN</div>
+                        <div class="employee-info">
+                            <h3>Zoeb Nomi</h3>
+                            <p>Designer, Outbound Sales > Intl</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="resignation-details">
+                    <div class="detail-row">
+                        <label>Exit Type:</label>
+                        <span class="exit-type termination">Termination</span>
+                    </div>
+                    <div class="detail-row">
+                        <label>Requested By:</label>
+                        <span>Zoeb N</span>
+                    </div>
+                    <div class="detail-row">
+                        <label>Notice Date:</label>
+                        <span>18 Dec 2024</span>
+                    </div>
+                    <div class="detail-row">
+                        <label>Reason:</label>
+                        <span>Death</span>
+                    </div>
+                    <div class="detail-row">
+                        <label>Comment:</label>
+                        <span>c</span>
+                    </div>
+                    <div class="detail-row">
+                        <label>Last Working Day:</label>
+                        <span>18 Dec 2024 <span class="status-pending">(To be finalised)</span></span>
+                    </div>
+                    <div class="detail-row">
+                        <label>Review Status:</label>
+                        <span>Raj Varaham <span class="status-pending">(Needs to approve)</span></span>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" id="closeViewDetailsBtn">Close</button>
+                <button class="btn btn-primary" id="reviewOnBehalfBtn">Review on Behalf</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Review Modal -->
+    <div id="reviewModal" class="modal">
+        <div class="modal-content review-modal-content">
+            <div class="modal-header">
+                <h2>Resignation review - <span id="reviewEmployeeName">Harshita Gantakolla</span></h2>
+                <button class="close-btn" id="closeReviewModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="employee-details-section">
+                    <div class="employee-header">
+                        <div class="employee-avatar" id="reviewEmployeeAvatar">HG</div>
+                        <div class="employee-info">
+                            <h3 id="reviewEmployeeFullName">Harshita Gantakolla</h3>
+                            <p id="reviewEmployeeRole">Product Manager, Product</p>
+                            <p id="reviewEmployeeLocation">DMart bldg</p>
+                        </div>
+                    </div>
+                    <div class="initiated-info">
+                        <span>Initiated on <span id="reviewInitiatedDate">10 Jan 2025</span></span>
+                        <span class="sent-info">Sent 7 days ago</span>
+                    </div>
+                </div>
+                
+                <div class="resignation-review-section">
+                    <div class="section-header">
+                        <h3>Resignation review</h3>
+                        <span class="pending-status">Pending on <span id="reviewPendingOn">Zoeb Nomi</span></span>
+                        <button class="btn btn-primary review-action-btn" id="reviewActionBtn">Review →</button>
+                    </div>
+                    
+                    <div class="exit-details-section">
+                        <div class="section-header">
+                            <h4>Exit details</h4>
+                            <button class="btn btn-sm btn-secondary edit-details-btn">Edit</button>
+                        </div>
+                        <div class="exit-details-content">
+                            <p><span id="reviewInitiatedBy">Zoeb Nomi</span> initiated resignation for <span id="reviewEmployeeName2">Harshita Gantakolla</span> On <span id="reviewInitiatedDate2">10 Jan 2025</span></p>
+                            <p><strong>Reason:</strong> <span id="reviewReason">Explore Other careers</span></p>
+                            <p><strong>Last working day as per policy:</strong> <span id="reviewPolicyDate">06 Mar 2025</span></p>
+                            <p><strong>Suggested last working day:</strong> <span id="reviewSuggestedDate">06 Mar 2025</span></p>
+                            <p><strong>Discussion with employee:</strong> <span id="reviewDiscussion">ec</span></p>
+                            <p><strong>Additional comments:</strong> <span id="reviewAdditionalComments">cf</span></p>
+                        </div>
+                    </div>
+                    
+                    <div class="status-section">
+                        <p>Status (<span id="reviewApprovedCount">0</span> of <span id="reviewTotalCount">1</span> approved)</p>
+                        <p>Review pending on <span id="reviewPendingOn2">Zoeb Nomi</span> on <span id="reviewPendingDate">10 Jan 2025</span></p>
+                        <button class="btn btn-primary review-action-btn-2" id="reviewActionBtn2">Review →</button>
+                    </div>
+                </div>
+                
+                <!-- Detailed Review Form (Hidden initially) -->
+                <div id="detailedReviewForm" class="detailed-review-form" style="display: none;">
+                    <h3>Resignation review form</h3>
+                    
+                    <div class="form-group">
+                        <label class="form-label">What is your decision on the employee's exit request?</label>
+                        <div class="radio-group">
+                            <label class="radio-label">
+                                <input type="radio" name="decision" value="accept" checked>
+                                <span class="radio-mark"></span>
+                                Accept resignation
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="decision" value="retain">
+                                <span class="radio-mark"></span>
+                                Recommend to retain
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="decision" value="reject">
+                                <span class="radio-mark"></span>
+                                Reject resignation
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Did you take any step to retain the employee?</label>
+                        <div class="radio-group">
+                            <label class="radio-label">
+                                <input type="radio" name="retention-steps" value="yes">
+                                <span class="radio-mark"></span>
+                                Yes
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="retention-steps" value="no" checked>
+                                <span class="radio-mark"></span>
+                                No
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Recommended last working day?</label>
+                        <div class="radio-group">
+                            <label class="radio-label">
+                                <input type="radio" name="last-working-day" value="policy" checked>
+                                <span class="radio-mark"></span>
+                                Notice period as per policy - <span id="policyDate">06 Mar 2025</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="last-working-day" value="other">
+                                <span class="radio-mark"></span>
+                                Other: <input type="date" class="form-control date-input" id="customDate">
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="rehire-eligible">
+                            <span class="checkbox-mark"></span>
+                            Mark employee as Ok to rehire
+                        </label>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Comment</label>
+                        <textarea class="form-textarea" placeholder="Type here" required></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Add attachment</label>
+                        <button class="btn btn-sm btn-secondary attachment-btn">
+                            <i class="fas fa-paperclip"></i> Add attachment
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer" id="reviewModalFooter">
+                <button class="btn btn-secondary" id="closeReviewBtn">Cancel</button>
+                <button class="btn btn-primary" id="submitReviewBtn" style="display: none;">Submit</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cancel Resignation Modal -->
+    <div id="cancelResignationModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Cancel Resignation</h2>
+                <button class="close-btn" id="closeCancelModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="warning-banner">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <span>Are you sure you want to cancel this resignation? This action will revert the employee's status to active.</span>
+                </div>
+                
+                <div class="employee-details-section">
+                    <div class="employee-header">
+                        <div class="employee-avatar" id="cancelEmployeeAvatar">AS</div>
+                        <div class="employee-info">
+                            <h3 id="cancelEmployeeName">Arjun Singh</h3>
+                            <p id="cancelEmployeeRole">Product Manager Product</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <form id="cancelForm">
+                    <div class="form-group">
+                        <label>Reason for Cancellation</label>
+                        <select class="form-select" required>
+                            <option value="">Select Reason</option>
+                            <option value="employee-requested">Employee Requested</option>
+                            <option value="manager-intervention">Manager Intervention</option>
+                            <option value="hr-decision">HR Decision</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Comments</label>
+                        <textarea class="form-textarea" placeholder="Add comments for cancellation..." required></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" id="closeCancelBtn">Cancel</button>
+                <button class="btn btn-danger" id="confirmCancelBtn">Cancel Resignation</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Asset Recovery Details Modal -->
+    <div id="assetRecoveryModal" class="modal">
+        <div class="modal-content asset-recovery-modal">
+            <div class="modal-header">
+                <h2>Asset recovery details</h2>
+                <button class="close-btn" id="closeAssetRecoveryModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="asset-context">
+                    <div class="context-item">
+                        <label>Asset Category:</label>
+                        <span id="assetCategory">Motor Vehicles</span>
+                    </div>
+                    <div class="context-item">
+                        <label>Location:</label>
+                        <span id="assetLocation">DMart bldg</span>
+                    </div>
+                </div>
+                
+                <form id="assetRecoveryForm">
+                    <div class="form-group">
+                        <label class="form-label">Asset recovered by:</label>
+                        <div class="employee-chip-container">
+                            <div class="employee-chip" id="recoveredByChip">
+                                <div class="employee-avatar">SK</div>
+                                <span class="employee-name">Saurabh Khare</span>
+                                <button type="button" class="remove-chip" id="removeRecoveredBy">
+                                    <i class="fas fa-times"></i>
+                                </button>
+                            </div>
+                            <button type="button" class="btn btn-secondary add-employee-btn" id="addRecoveredBy">
+                                <i class="fas fa-plus"></i> Add Employee
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Asset recovered on:</label>
+                        <div class="date-input-container">
+                            <input type="date" class="form-control" id="recoveryDate" required>
+                            <i class="fas fa-calendar-alt date-icon"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Asset condition:</label>
+                        <select class="form-select" id="assetCondition" required>
+                            <option value="">Select condition</option>
+                            <option value="excellent">Excellent</option>
+                            <option value="good">Good</option>
+                            <option value="fair" selected>Fair</option>
+                            <option value="poor">Poor</option>
+                            <option value="damaged">Damaged</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="chargeDamage">
+                            <span class="checkbox-mark"></span>
+                            Charge damage to employee
+                        </label>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Asset image:</label>
+                        <div class="attachment-section">
+                            <button type="button" class="btn btn-attachment" id="addAssetImage">
+                                <i class="fas fa-paperclip"></i> Add attachment
+                            </button>
+                            <div class="file-info">
+                                <p>Supported file types are .png, .jpg, .jpeg</p>
+                                <p>Max file size supported is 20 MB</p>
+                            </div>
+                            <div class="attached-files" id="assetImageFiles"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Other asset documents:</label>
+                        <div class="attachment-section">
+                            <button type="button" class="btn btn-attachment" id="addAssetDocuments">
+                                <i class="fas fa-paperclip"></i> Add attachment
+                            </button>
+                            <div class="file-info">
+                                <p>Supported file types are .png, .jpg, .jpeg, .pdf, .doc, .docx</p>
+                                <p>Max file size supported is 20 MB</p>
+                            </div>
+                            <div class="attached-files" id="assetDocumentFiles"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Additional note:</label>
+                        <textarea class="form-textarea" id="additionalNote" placeholder="Enter additional notes...">ok</textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" id="cancelAssetRecovery">Cancel</button>
+                <button class="btn btn-primary" id="saveAssetRecovery">Save</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Dropdown Menu -->
+    <div id="dropdownMenu" class="dropdown-menu">
+        <div class="dropdown-item" data-action="send-reminder">
+            <i class="fas fa-bell"></i>
+            <span>Send Reminder</span>
+        </div>
+        <div class="dropdown-item" data-action="view-details">
+            <i class="fas fa-eye"></i>
+            <span>View Details</span>
+        </div>
+        <div class="dropdown-item" data-action="update-details">
+            <i class="fas fa-edit"></i>
+            <span>Update Details</span>
+        </div>
+        <div class="dropdown-item" data-action="cancel-resignation">
+            <i class="fas fa-times"></i>
+            <span>Cancel Resignation</span>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
