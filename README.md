@@ -1,6 +1,6 @@
 # Employee Exit Management System
 
-A comprehensive web-based employee exit management system inspired by the Keka HR platform. This system allows employees to initiate resignations and provides administrators with tools to manage the entire exit process.
+A comprehensive web-based employee exit management system inspired by the Ashoka HR platform. This system allows employees to initiate resignations and provides administrators with tools to manage the entire exit process.
 
 ## Features
 

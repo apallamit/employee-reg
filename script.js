@@ -13,7 +13,7 @@ const state = {
     exitRequests: [
         {
             id: 1,
-            employee: 'Zoeb Nomi',
+            employee: 'Alex Johnson',
             role: 'Software Developer',
             type: 'Termination',
             noticeDate: '18 Dec 2024',
@@ -21,7 +21,7 @@ const state = {
             comment: 'c',
             lastWorkingDay: '18 Dec 2024',
             status: 'pending',
-            approver: 'Raj Varaham'
+            approver: 'David Brown'
         },
         {
             id: 2,
@@ -606,8 +606,8 @@ function showPanelSection(sectionId) {
 
 function getEmployeeData(employeeId) {
     const employeeData = {
-        'saurabh-khare': {
-            name: 'Saurabh Khare',
+        'michael-chen': {
+            name: 'Michael Chen',
             role: 'SDE',
             department: 'Engineering',
             location: 'DMart bldg',
@@ -644,7 +644,7 @@ function getEmployeeData(employeeId) {
         }
     };
     
-    return employeeData[employeeId] || employeeData['saurabh-khare'];
+    return employeeData[employeeId] || employeeData['michael-chen'];
 }
 
 function updatePanelEmployeeInfo(employeeData) {
@@ -701,7 +701,7 @@ function setupModals() {
     closeViewDetailsBtn.addEventListener('click', () => closeModal(viewDetailsModal));
     reviewOnBehalfBtn.addEventListener('click', () => {
         closeModal(viewDetailsModal);
-        openReviewModal('zoeb-nomi');
+        openReviewModal('alex-johnson');
     });
     
     // Review Modal
